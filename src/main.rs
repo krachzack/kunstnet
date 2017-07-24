@@ -10,14 +10,17 @@ const CLIENT_ADDR : &'static str = "0.0.0.0:0";
 const SRV_PORT : u16 = 65318;
 
 fn main() {
-    /*let server_handle = thread::spawn(server);
-    let client_handle = thread::spawn(client);
-    let client_handle2 = thread::spawn(client);
+    //let server_handle = thread::spawn(server);
+    //server_handle.join().expect("Could not join server");
 
-    server_handle.join().expect("Could not join server");
+    /*let client_handle = thread::spawn(client);
+    let client_handle2 = thread::spawn(client);
     client_handle.join().expect("Could not join client");
     client_handle2.join().expect("Could not join client 2");*/
-    server();
+
+    client();
+    
+    //server();
 }
 
 fn server() {
@@ -34,7 +37,7 @@ fn client() {
     let msg_srv = "please connect me with somebody";
     let msg = "brau!";
     let client_to_srv = UdpSocket::bind(CLIENT_ADDR).expect("could not bind client");
-    client_to_srv.send_to(msg_srv.as_bytes(), format!("0.0.0.0:{}", SRV_PORT)).expect("Could not send to server");
+    client_to_srv.send_to(msg_srv.as_bytes(), format!("185.26.156.19:{}", SRV_PORT)).expect("Could not send to server");
 
     {
         let (recv_len, sender_addr) = client_to_srv.recv_from(&mut buf).expect("Got nothing back 1");
