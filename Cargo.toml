@@ -1,0 +1,6 @@
+[package]
+name = "kunstnetz"
+version = "0.1.0"
+authors = ["krachzack <hello@phstadler.com>"]
+
+[dependencies]
