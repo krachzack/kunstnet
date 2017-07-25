@@ -4,6 +4,8 @@ use std::net::UdpSocket;
 use std::net::SocketAddr;
 use std::str;
 
+pub const PORT : u16 = 65318;
+
 #[derive(Debug)]
 pub struct Club {
     pending: Option<SocketAddr>,
@@ -11,10 +13,11 @@ pub struct Club {
 }
 
 impl Club {
-    pub fn bind(port: u16) -> Club {
+
+    pub fn bind() -> Club {
         println!("Creating server");
 
-        let bind_addr = format!("0.0.0.0:{}", port);
+        let bind_addr = format!("0.0.0.0:{}", PORT);
         
         Club {
             pending: None,
